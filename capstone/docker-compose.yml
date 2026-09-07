@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Database
+  database:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: capstonedb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+    #  Mounts a named volume (pgdata). Without this, all database records would be wiped whenever the container is stopped or recreated.
+
+  # 2. Fastify Task Service
+  task-service:
+    build:
+      context: ./task-service
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgresql://admin:password123@database:5432/capstonedb
+      AUDIT_SERVICE_URL: http://audit-service:3002
+    depends_on:
+      - database
+      - audit-service
+    # Ensures Docker starts the database and audit-service containers before starting task-service.
+
+  # 3. Hono Audit Service
+  audit-service:
+    build:
+      context: ./audit-service
+    ports:
+      - "3002:3002"
+
+volumes:
+  pgdata:

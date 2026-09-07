@@ -1,0 +1,25 @@
+{
+  "name": "task-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.34.5",
+  "dependencies": {
+    "drizzle-orm": "^0.45.2",
+    "fastify": "^5.12.1",
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.0",
+    "@types/node": "^26.4.0",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
