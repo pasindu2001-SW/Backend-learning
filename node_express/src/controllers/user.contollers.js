@@ -1,5 +1,5 @@
 //controllers handle the logic of the application and interact with the database. They receive requests from the routes, process them, and send responses back to the client.
-import { User } from '../modules/user.model.js';
+import { User } from '../models/user.model.js';
 
 const registerUser = async (req, res) => {
     try {
