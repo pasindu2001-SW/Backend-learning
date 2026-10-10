@@ -6,6 +6,7 @@ This workspace contains small TypeScript backend experiments and a multi-service
 
 - [`capstone`](capstone/README.md) - Docker Compose application with a PostgreSQL database, task service, and audit service.
 - [`node_bun`](node_bun/README.md) - Fastify, Hono, Zod, and TypeBox examples running with TypeScript.
+- [`node_express`](node_express/README.md) - Express.js learning project with MongoDB, Mongoose models, user authentication, and post CRUD APIs.
 
 ## Prerequisites
 
